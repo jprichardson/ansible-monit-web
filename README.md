@@ -26,11 +26,13 @@ Monit
 Read docs here: http://mmonit.com/monit/documentation/monit.html
 
 
+
 Todo
 ----
 
 - make OS agnostic
 - consider PID file tracking instead
+- remove prompt variables for external file
 
 
 
