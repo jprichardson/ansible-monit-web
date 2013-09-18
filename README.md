@@ -10,7 +10,14 @@ Usage
 
 Create an inventory file with the servers that you want to Node.js on or use `$ANSIBLE_HOSTS`.
 
+if connecting with root:
+
     ansible-playbook -i inventory-file -u root main.yml
+
+if sudoing:
+
+    ansible-playbook -i inventory-file -K main.yml
+
 
 
 Monit
@@ -22,7 +29,8 @@ Read docs here: http://mmonit.com/monit/documentation/monit.html
 Todo
 ----
 
-- Make OS agnostic.
+- make OS agnostic
+- consider PID file tracking instead
 
 
 
