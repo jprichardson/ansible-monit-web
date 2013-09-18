@@ -2,6 +2,19 @@
 
 ---
 - hosts: all
-  vars: 
+  sudo: yes
+  vars_prompt:
+    - name: "service" 
+      prompt: "name of the service"
+      private: no
+    - name: "port"
+      prompt: "port that it listens on"
+      defaut: "8080"
+      private: no
   tasks:
-
+  - name: ensure monit is installed
+    apt: pkg=monit state=latest
+  - name: copy template
+    template: src=server.conf.j2 dest=/etc/monit/conf.d/{{ service }}.conf backup=yes
+  - name: restart monit
+    service: name=monit state=restarted
