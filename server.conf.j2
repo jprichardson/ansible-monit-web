@@ -1,0 +1,7 @@
+check host {{ service }} with address 127.0.0.1
+        start "/sbin/start {{ service }}"
+        stop "/sbin/stop {{ service }}"
+        if failed port {{ port }} protocol HTTP
+                request /
+                with timeout 5 seconds
+                then restart
