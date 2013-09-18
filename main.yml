@@ -1,0 +1,7 @@
+#VERSION: 
+
+---
+- hosts: all
+  vars: 
+  tasks:
+
